@@ -204,5 +204,22 @@ namespace AttendanceCheckerSystem.Controllers
         {
             return _context.Meetings.Any(e => e.ID == id);
         }
+
+        public async Task<IActionResult> AttendanceSummary()
+        {
+            IEnumerable<Student> list = await _context.Students.ToListAsync();
+
+            //var filtered_list = list.Where(s => s.FirstName.StartsWith("Ja"));
+
+            var filtered_list = from s in list
+                                where s.FirstName.StartsWith("")
+                                select s;
+
+
+            return View(filtered_list);
+        }
+
+
+
     }
 }

@@ -32,7 +32,7 @@ namespace AttendanceCheckerSystem.Controllers
 
             var studentsSorted = students.OrderBy(s => s.LastName);
             ViewData["StudentList"] = studentsSorted;
-            
+
             return View();
         }
 
